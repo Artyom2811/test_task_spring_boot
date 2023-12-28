@@ -1,0 +1,37 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+  datasource:
+    url: jdbc:postgresql://localhost:5432/testdb
+    username: postgres
+    password: BNAyKJAdXT
+
+datasources:
+  configurations:
+    - name: data-base-1
+      strategy: postgres
+      url: jdbc:postgresql://localhost:5432/testdb
+      table: users
+      user: postgres
+      password: BNAyKJAdXT
+      mapping:
+        id: id
+        username: username
+        name: first_name
+        surname: surname
+    - name: data-base-2
+      strategy: postgres
+      url: jdbc:postgresql://localhost:5432/data-base-2
+      table: user_table
+      user: testuser
+      password: testpass
+      mapping:
+        id: ldap_login
+        username: ldap_login
+        name: name
+        surname: surname
+
+springdoc:
+    swagger-ui:
+        path: "/swagger-ui.html"
+
